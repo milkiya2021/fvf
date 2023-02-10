@@ -1,0 +1,105 @@
+<!--
+  [x] 계속하기 버튼을 누르면 heart.html로 이동시키기
+  [x] 가입하기 버튼을 클릭하면 회원가입 폼 뜨기 
+  
+
+  * 회원 가입 폼 
+  [x] 배경은 검정색 투명값으로 되어 있다. 
+  [x] 1. Username 항목에 텍스트 입력창에 아이디를 입력할 수 있다.  (input text)
+  [x] 2. password 항목에 텍스트 입력창에 패쓰워드를 입력할 수 있다.  (input password)
+  [x] 3. password confirm항목에 텍스트 입력창에 패쓰워드를 입력할 수 있다. 
+      [ ] 2,3번이 동일하지 않으면 에러메시지를 띄운다. 
+  [ ] 4. 준비된 여러 장의 프로필 이미지 중에 하나를 선택할 수 있다. 
+  [ ] 1,2,3,5 입력을 마쳤으면 enter를 눌러 가입을 한다. 
+  [ ] 클릭을 해서 가입을 한다. 
+  [x] 넷 중에 하나라도 입력이 되어 있지 않고 enter를 누르면 입력을 하라는 메시지가 뜬다.
+  [ ] x버튼을 누르면 창이 닫힌다. 
+  [ ] 외곽 배경을 누르면 창이 닫힌다. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="common_deco.css" />
+    <link rel="stylesheet" href="start_deco.css" />
+    <title>Fan vs Fan start page</title>
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="title">
+      <img class="startImg" src="start_image.jpg" />
+      <div class="titleText">Fan Vs Fan</div>
+      <div class="button_box">
+        <button
+          class="sp_button"
+          id="sp_button_continue"
+          onclick="location.href='heart.html'"
+        >
+          계속
+        </button>
+        <button
+          class="sp_button"
+          onclick="document.getElementById('popup').style.display='block'"
+        >
+          가입
+        </button>
+      </div>
+      <div id="popup" class="modal">
+        <!--요기부터는 팝업창이다-->
+        <span
+          onclick="document.getElementById('popup').style.display='none'"
+          class="close"
+          >&times;</span
+        >
+        <!--요거는 팝업창의 x버튼 -->
+        <form class="modal-content" action="/action_page.php">
+          <div class="container">
+            <p class="join_member">회원 가입</p>
+            <p>아이디를 생성하기 위해 아래 정보를 입력해주세요!</p>
+            <label>아이디</label>
+            <input type="text" placeholder="아이디를 입력해주세요." required />
+            <label>비밀번호</label>
+            <input
+              type="password"
+              placeholder="패쓰워드를 입력해주세요."
+              required
+            />
+            <label>비밀번호 재확인</label>
+            <input
+              type="password"
+              placeholder="패쓰워드를 다시한번 확인해주세요."
+              required
+            />
+            <div class="clearfix">
+              <button
+                type="button"
+                onclick="document.getElementById('popup').style.display='none'"
+                class="cancelbtn"
+              >
+                취소
+              </button>
+              <button type="submit" class="signupbtn">가입</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <span class="copyright">made by Hebom 2023</span>
+    </div>
+    <script>
+      let modal = document.getElementById("popup");
+
+      window.onclick = function (event) {
+        //외곽 아무대나 클릭하면 사라진다.
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
